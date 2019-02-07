@@ -389,45 +389,43 @@ table tr td:last-child{
   .layout #vs h1{
     margin: 4%;
   }
+  #board{
+    position: relative ;
+  }
   #line{
     position: absolute;
+    width: 49% !important;
   }
   .lined2{
-    top: 104% !important;
-    left: 10% !important;
-    width: 80% !important;
+    top: 46% !important;
+    left: 25% !important;
   }
   .lined {
-    top: 106% !important;
-    left: 13% !important;
-    width: 80% !important;
+    top: 44% !important;
+    left: 24% !important;
   }
   .lineh0{
-    top:87%;
-    left: 13% !important;
-    width:70% !important;
+    top:13%;
+    left: 25% !important;
   }
   .lineh1{
-    top:104% !important;
-    left: 13% !important;
-    width:70% !important;
+    top:48% !important;
+    left: 25% !important;
   }
   .lineh2{
-    top:120%;
-    width: 70% !important;
+    top:82%;
+    left:25% !important;
   }
   .linev0{
     top:103% !important;
-    left:-1% !important;
-    width: 60% !important;
+    left:9% !important;
   }
   .linev{
-    top:103% !important;
-    width: 60% !important;
-    left: 20% ;
+    top:48% !important;
+    left: 26% ;
   }
   .linev2{
-    left:41% !important;
+    left:42% !important;
   }
   .button{
     padding: 2%;
@@ -458,33 +456,25 @@ table tr td:last-child{
   #chooseNo, #Single-Box, #Multi-Box{
     margin: 2% 6% !important;
   }
-  .linev {
-    top: 99% !important;
-    width: 70% !important;
-    left: 16%;
+  #line{
+    width: 62% !important;
   }
-  .lineh0{
-    top:80% !important;
+  .lineh0,.lineh1,.lineh2{
+    left: 18% !important;
   }
-  .lineh1{
-    top:97% !important;
-  }
-  .lineh2{
-    top:115% !important;
-    left: 15% !important;
+  .linev{
+    left: 19%;
   }
   .linev0 {
-    left: -8% !important;
+    left: -3% !important;
   }
   .lined {
-    top: 97% !important;
-    left: 0% !important;
-    width: 98% !important;
+    top: 40% !important;
+    left: 16% !important;
   }
   .lined2 {
-    top: 99% !important;
-    left: 0% !important;
-    width: 96% !important;
+    top: 43% !important;
+    left: 21% !important;
   }
   .button{
     width:169px;
@@ -492,7 +482,7 @@ table tr td:last-child{
     padding: 4%;
   }
 }
-@media(max-width:320px){
+@media(max-width:360px){
   #heading h1 {
     font-size: 45px;
   }
@@ -507,32 +497,29 @@ table tr td:last-child{
     width: 92px;
     font-size: 50px;
   }
-  .lineh0 {
-    top: 73% !important;
-    left: 8% !important;
-    width: 84% !important;
+  #line{
+    width: 85% !important;
   }
-  .lineh1 {
-    top: 88% !important;
-    left: 8% !important;
-    width: 84% !important;
+  .lineh0, .lineh1, .lineh2 {
+    left: 4% !important;
   }
-  .lineh2 {
-    top: 105% !important;
-    left: 8% !important;
-    width: 84% !important;
+  .lined {
+    top: 43% !important;
+    left: 1% !important;
+  }
+  .lined2{
+    left:7% !important;
   }
   .linev{
-    top:88% !important;
+    left: 5%;
   }
   .linev0{
-    left:-15% !important;
+    left:-23% !important;
   }
   .linev2{
-    left: 45% !important;
+    left: 37% !important;
   }
   .lined2,.lined{
-    top:89% !important;
   }
   .button{
     padding: 3%;
