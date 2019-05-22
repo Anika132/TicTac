@@ -7,32 +7,34 @@ function bindEvents(){
 function IntialState(){
     var multibox= document.querySelector("#Multi-Box");
     var singlebox = document.querySelector("#Single-Box");
-    var choosebox = document.querySelector("#chooseNo");
-    choosebox.className="show";
-    singlebox.className="hide";
-    multibox.classList="hide";
+    // var choosebox = document.querySelector("#chooseNo");
+    // choosebox.className="hide";
+    // choosebox.className="show";
+    // singlebox.className="hide";
+    multibox.classList="show layout";
 
 }
 function OpenChoosen(){
     var reset = true;
     var multibox= document.querySelector("#Multi-Box");
     var singlebox = document.querySelector("#Single-Box");
-    var choosebox = document.querySelector("#chooseNo");
-    document.querySelector("#single").addEventListener("click",()=>{
-        console.log("single player is selected")
-        choosebox.className="hide";
-        singlebox.className="show layout";
-        ResetBoard(); 
-        setCountWin(); 
-    })  ;
-    document.querySelector("#multi").addEventListener("click",()=>{
-        choosebox.className="hide";
+    singlebox.className="hide";
+    // var choosebox = document.querySelector("#chooseNo");
+    // document.querySelector("#single").addEventListener("click",()=>{
+    //     console.log("single player is selected")
+    //     choosebox.className="hide";
+    //     // singlebox.className="show layout";
+    //     ResetBoard(); 
+    //     setCountWin(); 
+    // })  ;
+    // document.querySelector("#multi").addEventListener("click",()=>{
+        // choosebox.className="hide";
         multibox.className="show layout";  
         ResetBoard();  
         setCountWin();
         setTextTable();
         setInitialZoom();
-    })  ;
+    // })  ;
     checkHome();
     checkreset();
 }
@@ -40,15 +42,19 @@ function hideLine(){
     var line= document.querySelector("#line");
     line.className="hide";
 }
+function ResetBoard2(){
+    ResetBoard();
+    setCountWin();
+}
 function setCountWin(){
     var count2 = document.querySelector("#countP2");
     var count1 = document.querySelector("#countP1"); 
-    var count3 = document.querySelector("#countY");
-    var count4 = document.querySelector("#countC"); 
+    // var count3 = document.querySelector("#countY");
+    // var count4 = document.querySelector("#countC"); 
     count1.innerText="0";
     count2.innerText="0"; 
-    count3.innerText="0";
-    count4.innerText="0"; 
+    // count3.innerText="0";
+    // count4.innerText="0"; 
 }
 function setInitialZoom(){
     var divp1=document.querySelector("#turn-P1"); 
@@ -57,42 +63,35 @@ function setInitialZoom(){
     divp2.className="zoom";
 }
 function checkHome(){
-    document.querySelector("#M-home").addEventListener("click",IntialState);
+    document.querySelector("#M-home").addEventListener("click",ResetBoard2);
     document.querySelector("#S-home").addEventListener("click",IntialState);
 }
 function checkreset(){
     document.querySelector("#M-reset").addEventListener("click",ResetBoard);
-    document.querySelector("#S-reset").addEventListener("click",ResetBoard);
+    // document.querySelector("#S-reset").addEventListener("click",ResetBoard);
 }
 function setTextTable(reset){
     var cells = document.getElementsByTagName("td");
     var count=0;
     var player=TicTacToeOperations.CurrentPlayer;
-    console.log("PLAYER",player);
     for(let i=0;i<cells.length;i++){
         cells[i].addEventListener("click",()=>{
             count++;
             var invalidMove = false;
             var Win=TicTacToeOperations.getWin();
             if(cells[i].innerText=="O"||cells[i].innerText=="X"||Win){
-                console.log("Invalid Move!!");
                 invalidMove=true;
                 // player = TicTacToeOperations.CurrentPlayer;
-                console.log("player is ",player);
             }
             else{
-                console.log("value of i " ,i);
                 setClass(player,i);
                 player=TicTacToeOperations.TogglePlayer(player);
-                console.log("next Turn",player);
                 setZoom(player);
             }
 
             if(count>=5){
                 var wincells = TicTacToeOperations.CheckWin(cells);
-                console.log("Wincells is ",wincells);
                 drawLine(wincells,player);
-                console.log("EEmpty Boxes is ",TicTacToeOperations.giveEmptyBoxes(cells));
                 if(!invalidMove){
                 PrintWinner(player);
                 }
@@ -152,7 +151,6 @@ function setZoom(player){
 }
 function setClass(player,no){
     var cells = document.getElementsByTagName("td");
-    console.log("Value of no is ",no);
     for(let i=0;i<cells.length;i++){
         if(i==no){
         cells[i].innerText=player;
@@ -174,7 +172,6 @@ function ResetBoard(){
     hideLine();
 }
 function PrintWinner(player){
-    console.log("inside Print Winner");
     var count1 = document.querySelector("#countP1");
     var count2 = document.querySelector("#countP2");
     count1.className="format1";
@@ -192,7 +189,6 @@ function PrintWinner(player){
 
         }else{
             var count2 = document.querySelector("#countP2");
-            console.log(count2.innerText); 
             var no=parseInt(count2.innerText);
             var n1=no+1;
             count2.innerText=null;
