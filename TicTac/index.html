@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tic Tac Toe</title>
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi|Pacifico|Permanent+Marker|Sonsie+One" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
+    <link rel="icon" href="https://2.bp.blogspot.com/-iysAo1_IoE0/WdjH-0ZmreI/AAAAAAAADlY/A6xWXQv6DloQPv3QlEg_r7o1CP-yZd39wCLcBGAs/s320/board_0.png">
+    <link rel="stylesheet" href="assets/stylesheet/style.css">
+    <script src="assets/js/model.js"></script>
+    <script src="assets/js/controller.js"></script>
+</head>
+<body>
+    <div id="container">
+        <div id="heading">
+            <h1>Tic Tac Toe . . .</h1>
+        </div>
+        <div id="game-content">
+            <div id="player-info">
+                    <!-- <div id="chooseNo">
+                            <br>
+                            <button id="single" class="button"><h2>Single Player</h2></button>
+                            <br>
+                            <br>
+                            <button id="multi" class="button"><h2>Multi Player </h2></button>
+                            <br>
+                    </div> -->
+                    <div id="Multi-Box" class="layout ">
+                            <div id="counter-multi">
+                                <h2>Player 1 : <span id="countP1" class="format1"></span></h2>
+                                <h2>Player 2 : <span id="countP2" class="format2"></span></h2>
+                                 <hr>
+                            </div>
+                            <div id="turn-P1" >
+                                    <i class="fa fa-user" aria-hidden="true"id="P1"></i>
+                                    <h2>Player 1 : <span class="format1 font">O</span></h2>
+                            </div>        
+                            <span id="vs"><h1>VS</h1></span>
+                            <div id="turn-P2" >
+                                    <i class="fa fa-user" aria-hidden="true" id="P2"></i>
+                                    <h2>Player 2 : <span class="format2 font">X</span></h2>
+                            </div>
+                            <hr>
+                            <div class="button-cont">
+                                    <button id="M-home" class="button">
+                                            <i class="fas fa-home" aria-hidden="true"></i>                            
+                                    </button>
+                                    <button id="M-reset" class="button">
+                                        <i class="fas fa-redo-alt" aria-hidden="true"></i>
+                                    </button>
+                            </div>
+                    </div>
+                    <div id="Single-Box" class="layout">
+                                <div id="counter-single">
+                                   <h2 > You : <span id="countY" class="format1"></span></h2>
+                                    <h2>Computer : <span id="countC" class="format2"></span></h2>
+                                    <hr>
+                                </div>
+                                <i class="fa fa-user" aria-hidden="true"id="You"></i>
+                                <h2>You : <span class="format1 font">O</span></h2>
+                                <span id="vs"><h1>VS</h1></span>
+                                <i class="fa fa-laptop" aria-hidden="true" id="Comp"></i>
+                                <h2>Computer: <span class="format2 font">X</span></h2>
+                                <hr>
+                                <div class="button-cont">
+                                        <button id="S-home" class="button">
+                                                <i class="fas fa-home" aria-hidden="true"></i>                            
+                                        </button>
+                                        <button id="S-reset" class="button">
+                                            <i class="fas fa-redo-alt" aria-hidden="true"></i>                            
+                                        </button>
+                                </div>
+                    </div>
+            </div>
+
+            <div id="board"> 
+                            
+                    <table id="table">
+                            <tr>
+                                <td class="cells cellP1" >O</td>
+                                <td class="cells cellP2" >X</td>
+                                <td class="cells cellP1" >O</td>
+                            </tr>
+                            <tr>
+                                <td class="cells" ></td>
+                                <td class="cells cellP1" >O</td>
+                                <td class="cells cellP2">X</td>
+                            </tr>
+                            <tr>
+                                <td class="cells" ></td>
+                                <td class="cells" ></td>
+                                <td class="cells cellP2" >X</td>
+                            </tr>
+
+                            <hr id="line" class="hide">
+                        </table>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
