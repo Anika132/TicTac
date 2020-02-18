@@ -1,6 +1,6 @@
 const TicTacToeOperations ={
     CurrentPlayer:"O",
-    AIPlayer:"X",
+    // AIPlayer:"X",
     Names:[[1,4,7],[3,4,5]],
     isWin:false,
     emptyBoxes:[],
@@ -14,7 +14,9 @@ const TicTacToeOperations ={
         return player;
     },
     CheckHorizontal(Cells,num,noofrow){
+        console.log("Inside Check Horizontal");
         if((Cells[num-1].innerText == Cells[num].innerText)&&(Cells[num].innerText==Cells[num+1].innerText)){
+            console.log("Winner",noofrow);
             this.isWin=true;
             return this.getLine("H",noofrow);
         }else{
@@ -22,7 +24,9 @@ const TicTacToeOperations ={
         }
     },
     CheckVertical(Cells,num,noofcol){
+        console.log("inside Check vertical ");
         if((Cells[num-3].innerText == Cells[num].innerText)&&(Cells[num].innerText == Cells[num+3].innerText)){
+            console.log("Winner");
             this.isWin=true;
             return this.getLine("V",noofcol);
         }else{
@@ -47,17 +51,20 @@ const TicTacToeOperations ={
         } 
         if((Cells[4].innerText=='O')||(Cells[4].innerText=='X')){
             if((Cells[0].innerText == Cells[4].innerText)&&(Cells[4].innerText==Cells[8].innerText)){
+                console.log("Winner");
                 this.isWin=true;
                 this.isDiagonal=true;
                wincells= "diag1";
             }
             else
             if((Cells[2].innerText == Cells[4].innerText)&&(Cells[4].innerText==Cells[6].innerText)){
+                console.log("Winner");
                 this.isWin=true;
                 this.isDiagonal=true;
                wincells="diag2";
             }
         }
+        console.log("wincells",wincells);
         return wincells;
     },
     getWin(){
@@ -76,8 +83,11 @@ const TicTacToeOperations ={
     },
     giveEmptyBoxes(cells){
         for(let i=0;i<cells.length;i++){
+            console.log("inside for ")
             if((cells[i].innerText=="X")||(cells[i].innerText=="O")){
+                console.log(" inside if cond ");
             }else{
+                console.log("inside else cond ");
                 this.emptyBoxes.push(i);
             }
         }

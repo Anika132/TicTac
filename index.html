@@ -11,6 +11,7 @@
     <link rel="icon" href="https://2.bp.blogspot.com/-iysAo1_IoE0/WdjH-0ZmreI/AAAAAAAADlY/A6xWXQv6DloQPv3QlEg_r7o1CP-yZd39wCLcBGAs/s320/board_0.png">
     <link rel="stylesheet" href="assets/stylesheet/style.css">
     <script src="assets/js/model.js"></script>
+    <script src="assets/js/modelAI.js"></script>
     <script src="assets/js/controller.js"></script>
 </head>
 <body>
@@ -20,14 +21,14 @@
         </div>
         <div id="game-content">
             <div id="player-info">
-                    <!-- <div id="chooseNo">
+                    <div id="chooseNo">
                             <br>
                             <button id="single" class="button"><h2>Single Player</h2></button>
                             <br>
                             <br>
                             <button id="multi" class="button"><h2>Multi Player </h2></button>
                             <br>
-                    </div> -->
+                        </div>
                     <div id="Multi-Box" class="layout ">
                             <div id="counter-multi">
                                 <h2>Player 1 : <span id="countP1" class="format1"></span></h2>
@@ -80,19 +81,19 @@
                             
                     <table id="table">
                             <tr>
-                                <td class="cells cellP1" >O</td>
-                                <td class="cells cellP2" >X</td>
-                                <td class="cells cellP1" >O</td>
+                                <td class="cells cellP1" data-i="0" data-j="0" id="0">O</td>
+                                <td class="cells cellP2" data-i="0" data-j="1" id="1" >X</td>
+                                <td class="cells cellP1" data-i="0" data-j="2" id="2" >O</td>
                             </tr>
                             <tr>
-                                <td class="cells" ></td>
-                                <td class="cells cellP1" >O</td>
-                                <td class="cells cellP2">X</td>
+                                <td class="cells" data-i="1" data-j="0" id="3" ></td>
+                                <td class="cells cellP1" data-i="1" data-j="1" id="4">O</td>
+                                <td class="cells cellP2" data-i="1" data-j="2" id="5">X</td>
                             </tr>
                             <tr>
-                                <td class="cells" ></td>
-                                <td class="cells" ></td>
-                                <td class="cells cellP2" >X</td>
+                                <td class="cells" data-i="2" data-j="0" id="6"></td>
+                                <td class="cells"data-i="2" data-j="1" id="7" ></td>
+                                <td class="cells cellP2"data-i="2" data-j="2" id="8" >X</td>
                             </tr>
 
                             <hr id="line" class="hide">

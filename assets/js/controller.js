@@ -1,40 +1,38 @@
 window.addEventListener("load",bindEvents);
 function bindEvents(){
     IntialState();
-    // setTextTable();
     OpenChoosen();
 }
 function IntialState(){
     var multibox= document.querySelector("#Multi-Box");
     var singlebox = document.querySelector("#Single-Box");
-    // var choosebox = document.querySelector("#chooseNo");
-    // choosebox.className="hide";
-    // choosebox.className="show";
-    // singlebox.className="hide";
-    multibox.classList="show layout";
+    var choosebox = document.querySelector("#chooseNo");
+    choosebox.className="show";
+    singlebox.className="hide";
+    multibox.classList="hide";
 
 }
 function OpenChoosen(){
-    var reset = true;
     var multibox= document.querySelector("#Multi-Box");
     var singlebox = document.querySelector("#Single-Box");
-    singlebox.className="hide";
-    // var choosebox = document.querySelector("#chooseNo");
-    // document.querySelector("#single").addEventListener("click",()=>{
-    //     console.log("single player is selected")
-    //     choosebox.className="hide";
-    //     // singlebox.className="show layout";
-    //     ResetBoard(); 
-    //     setCountWin(); 
-    // })  ;
-    // document.querySelector("#multi").addEventListener("click",()=>{
-        // choosebox.className="hide";
+    var choosebox = document.querySelector("#chooseNo");
+    document.querySelector("#single").addEventListener("click",()=>{
+        choosebox.className="hide";
+        singlebox.className="show layout";
+        AIResetBoard(); 
+        setCountWin(); 
+        setTextAI();
+        startgameAI();
+    })  ;
+    document.querySelector("#multi").addEventListener("click",()=>{
+        choosebox.className="hide";
         multibox.className="show layout";  
-        ResetBoard();  
+        ResetBoard(); 
+        endGameAI(); 
         setCountWin();
         setTextTable();
         setInitialZoom();
-    // })  ;
+    })  ;
     checkHome();
     checkreset();
 }
@@ -42,19 +40,15 @@ function hideLine(){
     var line= document.querySelector("#line");
     line.className="hide";
 }
-function ResetBoard2(){
-    ResetBoard();
-    setCountWin();
-}
 function setCountWin(){
     var count2 = document.querySelector("#countP2");
     var count1 = document.querySelector("#countP1"); 
-    // var count3 = document.querySelector("#countY");
-    // var count4 = document.querySelector("#countC"); 
+    var count3 = document.querySelector("#countY");
+    var count4 = document.querySelector("#countC"); 
     count1.innerText="0";
     count2.innerText="0"; 
-    // count3.innerText="0";
-    // count4.innerText="0"; 
+    count3.innerText="0";
+    count4.innerText="0"; 
 }
 function setInitialZoom(){
     var divp1=document.querySelector("#turn-P1"); 
@@ -63,12 +57,12 @@ function setInitialZoom(){
     divp2.className="zoom";
 }
 function checkHome(){
-    document.querySelector("#M-home").addEventListener("click",ResetBoard2);
+    document.querySelector("#M-home").addEventListener("click",IntialState);
     document.querySelector("#S-home").addEventListener("click",IntialState);
 }
 function checkreset(){
     document.querySelector("#M-reset").addEventListener("click",ResetBoard);
-    // document.querySelector("#S-reset").addEventListener("click",ResetBoard);
+    document.querySelector("#S-reset").addEventListener("click",AIResetBoard);
 }
 function setTextTable(reset){
     var cells = document.getElementsByTagName("td");
@@ -81,7 +75,6 @@ function setTextTable(reset){
             var Win=TicTacToeOperations.getWin();
             if(cells[i].innerText=="O"||cells[i].innerText=="X"||Win){
                 invalidMove=true;
-                // player = TicTacToeOperations.CurrentPlayer;
             }
             else{
                 setClass(player,i);
@@ -97,6 +90,12 @@ function setTextTable(reset){
                 }
             }    
         });
+    }
+}
+function setTextAI(){
+    var cells = document.getElementsByTagName("td");
+    for(let i=0;i<cells.length;i++){
+            cells[i].addEventListener("click",turnClick,false);
     }
 }
 function drawLine(wincells,player){
@@ -130,10 +129,10 @@ function drawLine(wincells,player){
 }
 
 function setcolor(line,player){
-    if(player=="X"){
+    if(player==="X"|| player==="OAI"){
         line.style.backgroundColor="#C7493A";
     }else
-    if(player=="O"){
+    if(player==="O" || player==="XAI"){
         line.style.backgroundColor="#8E8741";
     }
 }
@@ -171,6 +170,16 @@ function ResetBoard(){
     }
     hideLine();
 }
+function AIResetBoard()
+{
+    var cells = document.getElementsByTagName("td");
+    for(let i=0;i<cells.length;i++){
+        cells[i].innerText= " ";
+    }
+    hideLine();
+    setTextAI();
+    startgameAI();
+}
 function PrintWinner(player){
     var count1 = document.querySelector("#countP1");
     var count2 = document.querySelector("#countP2");
@@ -195,6 +204,29 @@ function PrintWinner(player){
             count2.innerText=n1;
             count2.className="blink format2";
         }
+    }
+}
+function IncrementCounterAI(winner)
+{
+    var count1 = document.querySelector("#countY");
+    var count2 = document.querySelector("#countC");
+    count1.className="format1";
+    count2.className="format2";
+    if(winner==="O"){
+        var count1 = document.querySelector("#countY");
+        var no=parseInt(count1.innerText);
+         var n1=no+1;
+        count1.innerText=null;
+        count1.innerHTML=n1;
+        count1.className="blink format1";
+
+    }else{
+        var count2 = document.querySelector("#countC");
+        var no=parseInt(count2.innerText);
+        var n1=no+1;
+        count2.innerText=null;
+        count2.innerText=n1;
+        count2.className="blink format2";
     }
 
 }

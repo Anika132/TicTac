@@ -1,7 +1,8 @@
 body{
   margin: 0px;
   padding: 0px;
-  background-color: #7DC2AF;
+  background: rgb(65,178,163);
+  background: linear-gradient(90deg, rgba(65,178,163,1) 0%, rgba(243,130,136,1) 100%);
 }
 *{
   box-sizing: border-box;
@@ -14,6 +15,7 @@ body{
   font-weight: 900;
   font-family: 'Pacifico', cursive;
   color: white;
+
   margin: 0px;
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
@@ -40,8 +42,8 @@ body{
   border:10px solid #F38288;
   border-radius: 20px;
   padding: 4%;
-  /* background-color: black; */
-  background-color: #41b2a3;
+  background: rgb(2,0,36);
+  background: linear-gradient(180deg, rgba(2,0,36,1) 7%, rgba(65,178,163,1) 100%);
 }
 #counter-multi h2,#counter-single h2{
   font-size: 20px;
